@@ -9,7 +9,7 @@ from docx import Document
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
 
-# Load the configuration file
+# Load the configuration file; you will need to have your openai and newsapi keys in this file
 with open('config.json') as config_file:
     config = json.load(config_file)
 
@@ -18,6 +18,7 @@ openai.api_key = config['openai_key']
 newsapi_key = config['newsapi_key']
 
 # Google Drive setup
+# you will need to have a file client_secrets.json that has your Google api credentials
 gauth = GoogleAuth()
 gauth.LocalWebserverAuth()
 drive = GoogleDrive(gauth)
